@@ -6,7 +6,7 @@ class ViewController: UIViewController {
 
     let mainScreen = MainScreenView()
     
-    var contactsList = [Team]()
+    var teamsList = [Team]()
     
     var handleAuth: AuthStateDidChangeListenerHandle?
     
@@ -26,13 +26,13 @@ class ViewController: UIViewController {
             if user == nil{
                 //MARK: not signed in...
                 self.currentUser = nil
-                self.mainScreen.labelText.text = "Please sign in to see the notes!"
+                self.mainScreen.labelText.text = "Please sign in to see the teams!"
                 self.mainScreen.floatingButtonAddContact.isEnabled = false
                 self.mainScreen.floatingButtonAddContact.isHidden = true
                 
                 //MARK: Reset tableView...
-                self.contactsList.removeAll()
-                self.mainScreen.tableViewContacts.reloadData()
+                self.teamsList.removeAll()
+                self.mainScreen.tableViewTeams.reloadData()
                 
                 //MARK: Sign in bar button...
                 self.setupRightBarButton(isLoggedin: false)
@@ -50,20 +50,20 @@ class ViewController: UIViewController {
                 //MARK: Observe Firestore database to display the contacts list...
                 self.database.collection("users")
                     .document((self.currentUser?.email)!)
-                    .collection("contacts")
+                    .collection("teams")
                     .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
                         if let documents = querySnapshot?.documents{
-                            self.contactsList.removeAll()
+                            self.teamsList.removeAll()
                             for document in documents{
                                 do{
                                     let contact  = try document.data(as: Team.self)
-                                    self.contactsList.append(contact)
+                                    self.teamsList.append(contact)
                                 }catch{
                                     print(error)
                                 }
                             }
-                            self.contactsList.sort(by: {$0.name < $1.name})
-                            self.mainScreen.tableViewContacts.reloadData()
+                            self.teamsList.sort(by: {$0.name < $1.name})
+                            self.mainScreen.tableViewTeams.reloadData()
                         }
                     })
                 
@@ -74,14 +74,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "My Contacts"
+        title = "My Teams"
         
         //MARK: patching table view delegate and data source...
-        mainScreen.tableViewContacts.delegate = self
-        mainScreen.tableViewContacts.dataSource = self
+        mainScreen.tableViewTeams.delegate = self
+        mainScreen.tableViewTeams.dataSource = self
         
         //MARK: removing the separator line...
-        mainScreen.tableViewContacts.separatorStyle = .none
+        mainScreen.tableViewTeams.separatorStyle = .none
         
         //MARK: Make the titles look large...
         navigationController?.navigationBar.prefersLargeTitles = true

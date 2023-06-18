@@ -1,6 +1,6 @@
 import UIKit
 
-class TeamsTableViewCell: UITableViewCell {
+class PokemonTableViewCell: UITableViewCell {
     
     var wrapperCellView: UIView!
     var labelName: UILabel!

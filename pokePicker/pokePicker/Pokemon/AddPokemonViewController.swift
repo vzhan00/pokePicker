@@ -6,53 +6,52 @@ import FirebaseFirestoreSwift
 class AddPokemonViewController: UIViewController {
     var currentUser:FirebaseAuth.User?
     
-    let addContactScreen = AddTeamView()
+    var currentTeam:String?
+    
+    let addPokemonScreen = AddPokemonView()
     
     let database = Firestore.firestore()
     
     let childProgressView = ProgressSpinnerViewController()
     
     override func loadView() {
-        view = addContactScreen
+        view = addPokemonScreen
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = false
         title = "Add a New Contact"
         
-        addContactScreen.buttonAdd.addTarget(self, action: #selector(onAddButtonTapped), for: .touchUpInside)
+        addPokemonScreen.buttonAdd.addTarget(self, action: #selector(onAddButtonTapped), for: .touchUpInside)
     }
     
     //MARK: on add button tapped....
     @objc func onAddButtonTapped(){
-        let name = addContactScreen.textFieldName.text
-        let email = addContactScreen.textFieldEmail.text
-        let phoneText = addContactScreen.textFieldPhone.text
+        let name = addPokemonScreen.textFieldName.text
+        let move1 = addPokemonScreen.textMove1.text
+        let move2 = addPokemonScreen.textMove2.text
+        let move3 = addPokemonScreen.textMove3.text
+        let move4 = addPokemonScreen.textMove4.text
         
-        if name == "" || email == "" || phoneText == ""{
-            //alert..
-        }else{
-            if let phone = Int(phoneText!) {
-                let contact = Team(name: name!, email: email!, phone: phone)
-                
-                saveContactToFireStore(contact: contact)
-            }
-        }
+        let pokemon = Pokemon(name: name!, move1: move1!, move2: move2!, move3: move3!, move4: move4!)
         
+        savePokemonToFireStore(pokemon: pokemon)
     }
     
     //MARK: logic to add a contact to Firestore...
-    func saveContactToFireStore(contact: Team){
+    func savePokemonToFireStore(pokemon: Pokemon){
         if let userEmail = currentUser!.email{
-            let collectionContacts = database
+            let collectionPokemon = database
                 .collection("users")
                 .document(userEmail)
-                .collection("contacts")
+                .collection("teams")
+                .document(currentTeam!)
+                .collection("pokemon")
             
             //MARK: show progress indicator...
             showActivityIndicator()
             do{
-                try collectionContacts.addDocument(from: contact, completion: {(error) in
+                try collectionPokemon.addDocument(from: pokemon, completion: {(error) in
                     if error == nil{
                         //MARK: hide progress indicator...
                         self.hideActivityIndicator()

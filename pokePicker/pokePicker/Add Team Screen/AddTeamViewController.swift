@@ -6,53 +6,43 @@ import FirebaseFirestoreSwift
 class AddTeamViewController: UIViewController {
     var currentUser:FirebaseAuth.User?
     
-    let addContactScreen = AddTeamView()
+    let addTeamScreen = AddTeamView()
     
     let database = Firestore.firestore()
     
     let childProgressView = ProgressSpinnerViewController()
     
     override func loadView() {
-        view = addContactScreen
+        view = addTeamScreen
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = false
-        title = "Add a New Contact"
+        title = "Add a New Team"
         
-        addContactScreen.buttonAdd.addTarget(self, action: #selector(onAddButtonTapped), for: .touchUpInside)
+        addTeamScreen.buttonAdd.addTarget(self, action: #selector(onAddButtonTapped), for: .touchUpInside)
     }
     
     //MARK: on add button tapped....
     @objc func onAddButtonTapped(){
-        let name = addContactScreen.textFieldName.text
-        let email = addContactScreen.textFieldEmail.text
-        let phoneText = addContactScreen.textFieldPhone.text
-        
-        if name == "" || email == "" || phoneText == ""{
-            //alert..
-        }else{
-            if let phone = Int(phoneText!) {
-                let contact = Team(name: name!, email: email!, phone: phone)
-                
-                saveContactToFireStore(contact: contact)
-            }
-        }
+        let name = addTeamScreen.textFieldName.text
+        let team = Team(name: name!, pokemon: [Pokemon]())
+        saveTeamToFireStore(team: team)
         
     }
     
     //MARK: logic to add a contact to Firestore...
-    func saveContactToFireStore(contact: Team){
+    func saveTeamToFireStore(team: Team){
         if let userEmail = currentUser!.email{
             let collectionContacts = database
                 .collection("users")
                 .document(userEmail)
-                .collection("contacts")
+                .collection("teams")
             
             //MARK: show progress indicator...
             showActivityIndicator()
             do{
-                try collectionContacts.addDocument(from: contact, completion: {(error) in
+                try collectionContacts.addDocument(from: team, completion: {(error) in
                     if error == nil{
                         //MARK: hide progress indicator...
                         self.hideActivityIndicator()

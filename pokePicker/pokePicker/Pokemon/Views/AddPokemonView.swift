@@ -2,8 +2,10 @@ import UIKit
 
 class AddPokemonView: UIView {
     var textFieldName: UITextField!
-    var textFieldEmail: UITextField!
-    var textFieldPhone: UITextField!
+    var textMove1: UITextField!
+    var textMove2: UITextField!
+    var textMove3: UITextField!
+    var textMove4: UITextField!
     var buttonAdd: UIButton!
     
     override init(frame: CGRect) {
@@ -11,8 +13,10 @@ class AddPokemonView: UIView {
         self.backgroundColor = .white
         
         setupTextFieldName()
-        setupTextFieldEmail()
-        setupTextFieldPhone()
+        setupTextFieldMove1()
+        setupTextFieldMove2()
+        setupTextFieldMove3()
+        setupTextFieldMove4()
         setupButtonAdd()
         
         initConstraints()
@@ -26,20 +30,36 @@ class AddPokemonView: UIView {
         self.addSubview(textFieldName)
     }
     
-    func setupTextFieldEmail(){
-        textFieldEmail = UITextField()
-        textFieldEmail.placeholder = "Email"
-        textFieldEmail.borderStyle = .roundedRect
-        textFieldEmail.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(textFieldEmail)
+    func setupTextFieldMove1(){
+        textMove1 = UITextField()
+        textMove1.placeholder = "Move 1"
+        textMove1.borderStyle = .roundedRect
+        textMove1.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(textMove1)
     }
     
-    func setupTextFieldPhone(){
-        textFieldPhone = UITextField()
-        textFieldPhone.placeholder = "Phone"
-        textFieldPhone.borderStyle = .roundedRect
-        textFieldPhone.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(textFieldPhone)
+    func setupTextFieldMove2(){
+        textMove2 = UITextField()
+        textMove2.placeholder = "Move 2"
+        textMove2.borderStyle = .roundedRect
+        textMove2.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(textMove2)
+    }
+    
+    func setupTextFieldMove3(){
+        textMove2 = UITextField()
+        textMove2.placeholder = "Move 3"
+        textMove2.borderStyle = .roundedRect
+        textMove2.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(textMove2)
+    }
+    
+    func setupTextFieldMove4(){
+        textMove2 = UITextField()
+        textMove2.placeholder = "Move 4"
+        textMove2.borderStyle = .roundedRect
+        textMove2.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(textMove2)
     }
     
     func setupButtonAdd(){
@@ -57,15 +77,23 @@ class AddPokemonView: UIView {
             textFieldName.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             textFieldName.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
-            textFieldEmail.topAnchor.constraint(equalTo: textFieldName.bottomAnchor, constant: 8),
-            textFieldEmail.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            textFieldEmail.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            textMove1.topAnchor.constraint(equalTo: textFieldName.bottomAnchor, constant: 8),
+            textMove1.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            textMove1.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
-            textFieldPhone.topAnchor.constraint(equalTo: textFieldEmail.bottomAnchor, constant: 8),
-            textFieldPhone.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            textFieldPhone.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            textMove2.topAnchor.constraint(equalTo: textMove1.bottomAnchor, constant: 8),
+            textMove2.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            textMove2.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
-            buttonAdd.topAnchor.constraint(equalTo: textFieldPhone.bottomAnchor, constant: 8),
+            textMove3.topAnchor.constraint(equalTo: textMove2.bottomAnchor, constant: 8),
+            textMove3.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            textMove3.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            
+            textMove4.topAnchor.constraint(equalTo: textMove3.bottomAnchor, constant: 8),
+            textMove4.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            textMove4.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            
+            buttonAdd.topAnchor.constraint(equalTo: textMove4.bottomAnchor, constant: 8),
             buttonAdd.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             buttonAdd.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
         ])

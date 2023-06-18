@@ -1,31 +1,18 @@
 import UIKit
 
 class TeamView: UIView {
-    var profilePic: UIImageView!
     var labelText: UILabel!
     var floatingButtonAddContact: UIButton!
-    var tableViewContacts: UITableView!
+    var tableViewPokemon: UITableView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
         
-        setupProfilePic()
         setupLabelText()
         setupFloatingButtonAddContact()
-        setupTableViewContacts()
+        setupTableViewPokemon()
         initConstraints()
-    }
-    
-    //MARK: initializing the UI elements...
-    func setupProfilePic(){
-        profilePic = UIImageView()
-        profilePic.image = UIImage(systemName: "person.circle")?.withRenderingMode(.alwaysOriginal)
-        profilePic.contentMode = .scaleToFill
-        profilePic.clipsToBounds = true
-        profilePic.layer.masksToBounds = true
-        profilePic.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(profilePic)
     }
     
     func setupLabelText(){
@@ -35,11 +22,11 @@ class TeamView: UIView {
         self.addSubview(labelText)
     }
     
-    func setupTableViewContacts(){
-        tableViewContacts = UITableView()
-        tableViewContacts.register(TeamsTableViewCell.self, forCellReuseIdentifier: Configs.tableViewContactsID)
-        tableViewContacts.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(tableViewContacts)
+    func setupTableViewPokemon(){
+        tableViewPokemon = UITableView()
+        tableViewPokemon.register(TeamsTableViewCell.self, forCellReuseIdentifier: Configs.tableViewContactsID)
+        tableViewPokemon.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(tableViewPokemon)
     }
     
     func setupFloatingButtonAddContact(){
@@ -62,19 +49,14 @@ class TeamView: UIView {
     //MARK: setting up constraints...
     func initConstraints(){
         NSLayoutConstraint.activate([
-            profilePic.widthAnchor.constraint(equalToConstant: 32),
-            profilePic.heightAnchor.constraint(equalToConstant: 32),
-            profilePic.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
-            profilePic.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            labelText.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            labelText.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            labelText.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 8),
             
-            labelText.topAnchor.constraint(equalTo: profilePic.topAnchor),
-            labelText.bottomAnchor.constraint(equalTo: profilePic.bottomAnchor),
-            labelText.leadingAnchor.constraint(equalTo: profilePic.trailingAnchor, constant: 8),
-            
-            tableViewContacts.topAnchor.constraint(equalTo: profilePic.bottomAnchor, constant: 8),
-            tableViewContacts.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
-            tableViewContacts.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            tableViewContacts.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            tableViewPokemon.topAnchor.constraint(equalTo: labelText.bottomAnchor, constant: 8),
+            tableViewPokemon.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            tableViewPokemon.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            tableViewPokemon.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
             floatingButtonAddContact.widthAnchor.constraint(equalToConstant: 48),
             floatingButtonAddContact.heightAnchor.constraint(equalToConstant: 48),

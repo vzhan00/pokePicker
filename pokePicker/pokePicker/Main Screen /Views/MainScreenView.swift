@@ -4,7 +4,7 @@ class MainScreenView: UIView {
     var profilePic: UIImageView!
     var labelText: UILabel!
     var floatingButtonAddContact: UIButton!
-    var tableViewContacts: UITableView!
+    var tableViewTeams: UITableView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,10 +36,10 @@ class MainScreenView: UIView {
     }
     
     func setupTableViewContacts(){
-        tableViewContacts = UITableView()
-        tableViewContacts.register(TeamsTableViewCell.self, forCellReuseIdentifier: Configs.tableViewContactsID)
-        tableViewContacts.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(tableViewContacts)
+        tableViewTeams = UITableView()
+        tableViewTeams.register(TeamsTableViewCell.self, forCellReuseIdentifier: Configs.tableViewContactsID)
+        tableViewTeams.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(tableViewTeams)
     }
     
     func setupFloatingButtonAddContact(){
@@ -71,10 +71,10 @@ class MainScreenView: UIView {
             labelText.bottomAnchor.constraint(equalTo: profilePic.bottomAnchor),
             labelText.leadingAnchor.constraint(equalTo: profilePic.trailingAnchor, constant: 8),
             
-            tableViewContacts.topAnchor.constraint(equalTo: profilePic.bottomAnchor, constant: 8),
-            tableViewContacts.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
-            tableViewContacts.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            tableViewContacts.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            tableViewTeams.topAnchor.constraint(equalTo: profilePic.bottomAnchor, constant: 8),
+            tableViewTeams.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            tableViewTeams.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            tableViewTeams.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
             floatingButtonAddContact.widthAnchor.constraint(equalToConstant: 48),
             floatingButtonAddContact.heightAnchor.constraint(equalToConstant: 48),
