@@ -31,6 +31,9 @@
 		4B99E0792A2AD3C400561156 /* RegisterProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99E0782A2AD3C400561156 /* RegisterProgressIndicatorManager.swift */; };
 		4B99E07D2A2AEAF100561156 /* AddTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99E07C2A2AEAF100561156 /* AddTeamView.swift */; };
 		4B99E07F2A2AEB0A00561156 /* AddTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99E07E2A2AEB0A00561156 /* AddTeamViewController.swift */; };
+		C6DDB96F2A3F5CEF003C85B0 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDB96E2A3F5CEF003C85B0 /* QRScannerViewController.swift */; };
+		C6DDB9712A3F5D15003C85B0 /* QRGeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDB9702A3F5D15003C85B0 /* QRGeneratorViewController.swift */; };
+		C6DDB9732A3F5D39003C85B0 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDB9722A3F5D39003C85B0 /* QRGenerator.swift */; };
 		FAE92F4D2A3EC00600BD0F04 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAE92F4C2A3EC00600BD0F04 /* GoogleService-Info.plist */; };
 		FAE92F502A3EC3AA00BD0F04 /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE92F4F2A3EC3A900BD0F04 /* TeamView.swift */; };
 		FAE92F522A3EC42800BD0F04 /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE92F512A3EC42800BD0F04 /* TeamViewController.swift */; };
@@ -67,6 +70,9 @@
 		4B99E0782A2AD3C400561156 /* RegisterProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProgressIndicatorManager.swift; sourceTree = "<group>"; };
 		4B99E07C2A2AEAF100561156 /* AddTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamView.swift; sourceTree = "<group>"; };
 		4B99E07E2A2AEB0A00561156 /* AddTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamViewController.swift; sourceTree = "<group>"; };
+		C6DDB96E2A3F5CEF003C85B0 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
+		C6DDB9702A3F5D15003C85B0 /* QRGeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGeneratorViewController.swift; sourceTree = "<group>"; };
+		C6DDB9722A3F5D39003C85B0 /* QRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
 		FAE92F4C2A3EC00600BD0F04 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAE92F4F2A3EC3A900BD0F04 /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
 		FAE92F512A3EC42800BD0F04 /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +120,7 @@
 		4B91D94C2A298B5200070ED2 /* pokePicker */ = {
 			isa = PBXGroup;
 			children = (
+				C6DDB96D2A3F5C91003C85B0 /* QR Code */,
 				FAE92F552A3EC4C200BD0F04 /* Pokemon */,
 				FAE92F4E2A3EC39500BD0F04 /* Team */,
 				4B99E0622A2A735600561156 /* Configs.swift */,
@@ -206,6 +213,16 @@
 				4B99E07C2A2AEAF100561156 /* AddTeamView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C6DDB96D2A3F5C91003C85B0 /* QR Code */ = {
+			isa = PBXGroup;
+			children = (
+				C6DDB96E2A3F5CEF003C85B0 /* QRScannerViewController.swift */,
+				C6DDB9702A3F5D15003C85B0 /* QRGeneratorViewController.swift */,
+				C6DDB9722A3F5D39003C85B0 /* QRGenerator.swift */,
+			);
+			path = "QR Code";
 			sourceTree = "<group>";
 		};
 		FAE92F4E2A3EC39500BD0F04 /* Team */ = {
@@ -339,6 +356,7 @@
 				FAE92F5B2A3EC80000BD0F04 /* AddPokemonView.swift in Sources */,
 				FAE92F542A3EC46700BD0F04 /* User.swift in Sources */,
 				FAE92F5D2A3EC81500BD0F04 /* AddPokemonViewController.swift in Sources */,
+				C6DDB9732A3F5D39003C85B0 /* QRGenerator.swift in Sources */,
 				4B99E06A2A2A89FA00561156 /* RightBarButtonManager.swift in Sources */,
 				4B99E07F2A2AEB0A00561156 /* AddTeamViewController.swift in Sources */,
 				FAE92F502A3EC3AA00BD0F04 /* TeamView.swift in Sources */,
@@ -347,6 +365,8 @@
 				FAE92F632A3ECE0900BD0F04 /* PokemonTableViewCell.swift in Sources */,
 				4B99E05F2A2A6EE700561156 /* MainScreenView.swift in Sources */,
 				4B99E0792A2AD3C400561156 /* RegisterProgressIndicatorManager.swift in Sources */,
+				C6DDB9712A3F5D15003C85B0 /* QRGeneratorViewController.swift in Sources */,
+				C6DDB96F2A3F5CEF003C85B0 /* QRScannerViewController.swift in Sources */,
 				4B99E0632A2A735600561156 /* Configs.swift in Sources */,
 				4B99E0682A2A795600561156 /* TeamsTableViewManager.swift in Sources */,
 				FAE92F592A3EC7DF00BD0F04 /* Pokemon.swift in Sources */,
