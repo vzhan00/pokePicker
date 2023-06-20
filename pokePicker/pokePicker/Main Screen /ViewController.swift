@@ -106,5 +106,19 @@ class ViewController: UIViewController {
         addTeamController.currentUser = self.currentUser
         navigationController?.pushViewController(addTeamController, animated: true)
     }
+    
+    func editSelectedFor(team: Int) {
+        print("shit")
+    }
+    
+    func deleteSelectedFor(team: Int) {
+        self.database.collection("users")
+            .document((self.currentUser?.email)!)
+            .collection("teams")
+            .document(teamsList[team].id!)
+            .delete()
+        
+        mainScreen.tableViewTeams.reloadData()
+    }
 }
 

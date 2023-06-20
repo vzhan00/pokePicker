@@ -10,4 +10,10 @@ struct Team: Codable{
         self.name = name
         self.pokemon = pokemon
     }
+    
+    init(id: String, name: String, pokemon: [Pokemon]) {
+        self.id = id
+        self.name = name
+        self.pokemon = pokemon
+    }
 }
