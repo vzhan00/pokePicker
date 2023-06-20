@@ -1,8 +1,16 @@
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class PokemonViewController: UIViewController {
     
     let displayScreen = PokemonView()
+    
+    let database = Firestore.firestore()
+    
+    var currentUser: FirebaseAuth.User?
+    
+    var currentTeam: Team?
     
     var receivedPokemon: Pokemon?
     
@@ -34,7 +42,25 @@ class PokemonViewController: UIViewController {
 
 extension PokemonViewController: EditViewControllerDelegate {
     func didUpdatePokemon(_ pokemon: Pokemon) {
-        receivedPokemon = pokemon
+        receivedPokemon?.name = pokemon.name
+        receivedPokemon?.move1 = pokemon.move1
+        receivedPokemon?.move2 = pokemon.move2
+        receivedPokemon?.move3 = pokemon.move3
+        receivedPokemon?.move4 = pokemon.move4
+        
+        self.database.collection("users")
+            .document((self.currentUser?.email)!)
+            .collection("teams")
+            .document(currentTeam!.id!)
+            .collection("pokemon")
+            .document(receivedPokemon!.id!)
+            .updateData([
+                "name": receivedPokemon!.name,
+                "move1": receivedPokemon!.move1,
+                "move2": receivedPokemon!.move2,
+                "move3": receivedPokemon!.move3,
+                "move4": receivedPokemon!.move4,
+                ])
         
         // Update the displayed values
         displayScreen.name.text = receivedPokemon!.name

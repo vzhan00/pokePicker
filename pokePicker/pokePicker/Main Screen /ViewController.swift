@@ -108,7 +108,7 @@ class ViewController: UIViewController {
     }
     
     func editSelectedFor(team: Int) {
-        let alert = UIAlertController(title: "Some Title", message: "Enter a text", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Edit Team", message: "Enter new team name", preferredStyle: .alert)
 
         alert.addTextField { (textField) in
             textField.text = ""

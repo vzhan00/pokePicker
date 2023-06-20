@@ -91,5 +91,33 @@ class TeamViewController: UIViewController {
         qrGeneratorController.team = self.currentTeam
         navigationController?.pushViewController(qrGeneratorController, animated: true)
     }
+    
+    func editSelectedFor(pokemon: Int) {
+        let pokemonVC = PokemonViewController()
+        
+        pokemonVC.receivedPokemon = pokemonList[pokemon]
+        pokemonVC.currentTeam = currentTeam
+        pokemonVC.currentUser = currentUser
+        
+        print(pokemonList[pokemon].id)
+        
+        let editViewController = EditViewController()
+        editViewController.delegate = pokemonVC
+        editViewController.pokemon = pokemonList[pokemon]
+        
+        navigationController?.pushViewController(editViewController, animated: true)
+    }
+    
+    func deleteSelectedFor(pokemon: Int) {
+        self.database.collection("users")
+            .document((self.currentUser?.email)!)
+            .collection("teams")
+            .document(currentTeam!.id!)
+            .collection("pokemon")
+            .document(pokemonList[pokemon].id!)
+            .delete()
+        
+        teamScreen.tableViewPokemon.reloadData()
+    }
 }
 

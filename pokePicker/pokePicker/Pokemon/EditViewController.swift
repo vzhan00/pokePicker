@@ -11,7 +11,7 @@ protocol EditViewControllerDelegate: AnyObject {
 }
 
 class EditViewController: UIViewController {
-    weak var delegate: EditViewControllerDelegate?
+    var delegate: EditViewControllerDelegate?
     
     var pokemon: Pokemon?
     
