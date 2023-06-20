@@ -19,10 +19,9 @@ class QRGeneratorViewController: UIViewController {
         
         struct SimplifiedTeam: Codable {
             var name: String
-            var pokemon: [Pokemon]
         }
 
-        let simplifiedTeam = SimplifiedTeam(name: team.name, pokemon: team.pokemon)
+        let simplifiedTeam = SimplifiedTeam(name: team.name)
         guard let teamData = try? JSONEncoder().encode(simplifiedTeam),
               let teamString = String(data: teamData, encoding: .utf8) else { return }
 

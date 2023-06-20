@@ -4,16 +4,13 @@ import FirebaseFirestoreSwift
 struct Team: Codable{
     @DocumentID var id: String?
     var name: String
-    var pokemon: [Pokemon]
     
-    init(name: String, pokemon: [Pokemon]) {
+    init(name: String) {
         self.name = name
-        self.pokemon = pokemon
     }
     
-    init(id: String, name: String, pokemon: [Pokemon]) {
+    init(id: String, name: String) {
         self.id = id
         self.name = name
-        self.pokemon = pokemon
     }
 }

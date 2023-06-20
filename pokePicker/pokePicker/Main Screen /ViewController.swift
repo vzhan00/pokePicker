@@ -108,7 +108,29 @@ class ViewController: UIViewController {
     }
     
     func editSelectedFor(team: Int) {
-        print("shit")
+        let alert = UIAlertController(title: "Some Title", message: "Enter a text", preferredStyle: .alert)
+
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] as! UITextField
+            self.database.collection("users")
+                .document((self.currentUser?.email)!)
+                .collection("teams")
+                .document(self.teamsList[team].id!)
+                .updateData(["name": textField.text])
+        }))
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
+                    print("Cancel button click")
+                }
+        alert.addAction(cancel)
+
+        self.present(alert, animated: true, completion: nil)
+        
+        mainScreen.tableViewTeams.reloadData()
     }
     
     func deleteSelectedFor(team: Int) {

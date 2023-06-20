@@ -15,7 +15,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         let buttonOptions = UIButton(type: .system)
         buttonOptions.sizeToFit()
         buttonOptions.showsMenuAsPrimaryAction = true
-        buttonOptions.setImage(UIImage(systemName: "slide.horizontal.3"), for: .normal)
+        buttonOptions.setImage(UIImage(systemName: "slider.horizontal.3"), for: .normal)
         
         buttonOptions.menu = UIMenu(title: "Edit/Delete",
                                     children: [
@@ -24,6 +24,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
                                     ]
         )
         
+        cell.accessoryView = buttonOptions
         
         return cell
     }

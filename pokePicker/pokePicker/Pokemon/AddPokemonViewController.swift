@@ -36,8 +36,6 @@ class AddPokemonViewController: UIViewController {
         let pokemon = Pokemon(name: name!, move1: move1!, move2: move2!, move3: move3!, move4: move4!)
         
         savePokemonToFireStore(pokemon: pokemon)
-        
-        currentTeam?.pokemon.append(pokemon)
     }
     
     //MARK: logic to add a contact to Firestore...

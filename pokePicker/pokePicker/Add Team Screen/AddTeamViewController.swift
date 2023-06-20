@@ -26,7 +26,7 @@ class AddTeamViewController: UIViewController {
     //MARK: on add button tapped....
     @objc func onAddButtonTapped(){
         let name = addTeamScreen.textFieldName.text
-        let team = Team(name: name!, pokemon: [Pokemon]())
+        let team = Team(name: name!)
         saveTeamToFireStore(team: team)
         
     }
