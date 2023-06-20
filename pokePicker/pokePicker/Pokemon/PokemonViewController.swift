@@ -28,6 +28,7 @@ class PokemonViewController: UIViewController {
         displayScreen.move2.text = "Move 2: \(receivedPokemon!.move2)"
         displayScreen.move3.text = "Move 3: \(receivedPokemon!.move3)"
         displayScreen.move4.text = "Move 4: \(receivedPokemon!.move4)"
+        loadImage(pokemonName: receivedPokemon!.name)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(onEditBarButtonTapped))
     }
@@ -37,6 +38,15 @@ class PokemonViewController: UIViewController {
         editViewController.delegate = self
         editViewController.pokemon = receivedPokemon
         navigationController?.pushViewController(editViewController, animated: true)
+    }
+    
+    func loadImage(pokemonName: String) {
+        let formattedName = pokemonName.lowercased().replacingOccurrences(of: " ", with: "")
+        if let image = UIImage(named: formattedName) {
+            displayScreen.pokemonSprite.image = image
+        } else {
+            displayScreen.pokemonSprite.image = UIImage(named: "questionmark")
+        }
     }
 }
 

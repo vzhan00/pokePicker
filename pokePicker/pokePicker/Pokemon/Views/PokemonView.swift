@@ -6,6 +6,7 @@ class PokemonView: UIView {
     var move2:UILabel!
     var move3:UILabel!
     var move4:UILabel!
+    var pokemonSprite: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -17,6 +18,7 @@ class PokemonView: UIView {
         setupMove2()
         setupMove3()
         setupMove4()
+        setupPokemonSprite()
         
         initConstraints()
     }
@@ -56,21 +58,38 @@ class PokemonView: UIView {
         self.addSubview(move4)
     }
     
+    func setupPokemonSprite() {
+         pokemonSprite = UIImageView()
+         pokemonSprite.translatesAutoresizingMaskIntoConstraints = false
+         self.addSubview(pokemonSprite)
+     }
+    
+
     func initConstraints(){
         
         NSLayoutConstraint.activate([
+            pokemonSprite.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            pokemonSprite.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
+            pokemonSprite.widthAnchor.constraint(equalToConstant: 100),
+            pokemonSprite.heightAnchor.constraint(equalToConstant: 100),
+            
             name.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            name.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
+            name.topAnchor.constraint(equalTo: pokemonSprite.bottomAnchor, constant: 16),
+            
             move1.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             move1.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 16),
+            
             move2.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             move2.topAnchor.constraint(equalTo: move1.bottomAnchor, constant: 16),
+            
             move3.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             move3.topAnchor.constraint(equalTo: move2.bottomAnchor, constant: 16),
+            
             move4.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            move4.topAnchor.constraint(equalTo: move3.bottomAnchor, constant: 16)
+            move4.topAnchor.constraint(equalTo: move3.bottomAnchor, constant: 16),
         ])
     }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
