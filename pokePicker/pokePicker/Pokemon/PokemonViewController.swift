@@ -57,7 +57,7 @@ extension PokemonViewController: EditViewControllerDelegate {
         receivedPokemon?.move2 = pokemon.move2
         receivedPokemon?.move3 = pokemon.move3
         receivedPokemon?.move4 = pokemon.move4
-        
+
         self.database.collection("users")
             .document((self.currentUser?.email)!)
             .collection("teams")
@@ -70,13 +70,17 @@ extension PokemonViewController: EditViewControllerDelegate {
                 "move2": receivedPokemon!.move2,
                 "move3": receivedPokemon!.move3,
                 "move4": receivedPokemon!.move4,
-                ])
-        
+            ])
+
         // Update the displayed values
         displayScreen.name.text = receivedPokemon!.name
         displayScreen.move1.text = "Move 1: \(receivedPokemon!.move1)"
         displayScreen.move2.text = "Move 2: \(receivedPokemon!.move2)"
         displayScreen.move3.text = "Move 3: \(receivedPokemon!.move3)"
         displayScreen.move4.text = "Move 4: \(receivedPokemon!.move4)"
+
+        // Update the sprite image
+        loadImage(pokemonName: receivedPokemon!.name)
     }
 }
+
