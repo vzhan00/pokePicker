@@ -14,7 +14,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Configs.tableViewContactsID, for: indexPath) as! TeamsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Configs.tableViewPokemonID, for: indexPath) as! PokemonTableViewCell
         cell.labelName.text = pokemonList[indexPath.row].name
         return cell
     }

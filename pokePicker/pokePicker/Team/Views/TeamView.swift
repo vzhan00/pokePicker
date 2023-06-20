@@ -24,7 +24,7 @@ class TeamView: UIView {
     
     func setupTableViewPokemon(){
         tableViewPokemon = UITableView()
-        tableViewPokemon.register(TeamsTableViewCell.self, forCellReuseIdentifier: Configs.tableViewContactsID)
+        tableViewPokemon.register(PokemonTableViewCell.self, forCellReuseIdentifier: Configs.tableViewPokemonID)
         tableViewPokemon.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(tableViewPokemon)
     }

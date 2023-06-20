@@ -7,7 +7,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Configs.tableViewContactsID, for: indexPath) as! TeamsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Configs.tableViewTeamsID, for: indexPath) as! TeamsTableViewCell
         cell.labelName.text = teamsList[indexPath.row].name
         return cell
     }

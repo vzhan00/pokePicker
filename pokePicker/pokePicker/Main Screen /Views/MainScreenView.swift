@@ -37,7 +37,7 @@ class MainScreenView: UIView {
     
     func setupTableViewContacts(){
         tableViewTeams = UITableView()
-        tableViewTeams.register(TeamsTableViewCell.self, forCellReuseIdentifier: Configs.tableViewContactsID)
+        tableViewTeams.register(TeamsTableViewCell.self, forCellReuseIdentifier: Configs.tableViewTeamsID)
         tableViewTeams.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(tableViewTeams)
     }

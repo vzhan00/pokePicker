@@ -47,19 +47,19 @@ class AddPokemonView: UIView {
     }
     
     func setupTextFieldMove3(){
-        textMove2 = UITextField()
-        textMove2.placeholder = "Move 3"
-        textMove2.borderStyle = .roundedRect
-        textMove2.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(textMove2)
+        textMove3 = UITextField()
+        textMove3.placeholder = "Move 3"
+        textMove3.borderStyle = .roundedRect
+        textMove3.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(textMove3)
     }
     
     func setupTextFieldMove4(){
-        textMove2 = UITextField()
-        textMove2.placeholder = "Move 4"
-        textMove2.borderStyle = .roundedRect
-        textMove2.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(textMove2)
+        textMove4 = UITextField()
+        textMove4.placeholder = "Move 4"
+        textMove4.borderStyle = .roundedRect
+        textMove4.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(textMove4)
     }
     
     func setupButtonAdd(){

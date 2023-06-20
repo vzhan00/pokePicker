@@ -6,7 +6,7 @@ import FirebaseFirestoreSwift
 class AddPokemonViewController: UIViewController {
     var currentUser:FirebaseAuth.User?
     
-    var currentTeam:String?
+    var currentTeam:Team?
     
     let addPokemonScreen = AddPokemonView()
     
@@ -20,7 +20,7 @@ class AddPokemonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = false
-        title = "Add a New Contact"
+        title = "Add a New Pokemon"
         
         addPokemonScreen.buttonAdd.addTarget(self, action: #selector(onAddButtonTapped), for: .touchUpInside)
     }
@@ -45,7 +45,7 @@ class AddPokemonViewController: UIViewController {
                 .collection("users")
                 .document(userEmail)
                 .collection("teams")
-                .document(currentTeam!)
+                .document(currentTeam!.id!)
                 .collection("pokemon")
             
             //MARK: show progress indicator...

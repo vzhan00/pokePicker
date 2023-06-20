@@ -7,5 +7,6 @@
 
 import Foundation
 class Configs{
-    static let tableViewContactsID = "tableViewContactsID"
+    static let tableViewTeamsID = "tableViewTeamsID"
+    static let tableViewPokemonID = "tableViewPokemonID"
 }

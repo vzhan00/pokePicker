@@ -90,9 +90,8 @@ class ViewController: UIViewController {
         view.bringSubviewToFront(mainScreen.floatingButtonAddContact)
         
         //MARK: tapping the floating add contact button...
-        mainScreen.floatingButtonAddContact.addTarget(self, action: #selector(addContactButtonTapped), for: .touchUpInside)
+        mainScreen.floatingButtonAddContact.addTarget(self, action: #selector(addTeamButtonTapped), for: .touchUpInside)
     }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         Auth.auth().removeStateDidChangeListener(handleAuth!)
@@ -102,10 +101,10 @@ class ViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password)
     }
     
-    @objc func addContactButtonTapped(){
-        let addContactController = AddTeamViewController()
-        addContactController.currentUser = self.currentUser
-        navigationController?.pushViewController(addContactController, animated: true)
+    @objc func addTeamButtonTapped(){
+        let addTeamController = AddTeamViewController()
+        addTeamController.currentUser = self.currentUser
+        navigationController?.pushViewController(addTeamController, animated: true)
     }
 }
 

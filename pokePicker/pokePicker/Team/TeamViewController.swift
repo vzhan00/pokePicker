@@ -27,10 +27,10 @@ class TeamViewController: UIViewController {
         self.teamScreen.floatingButtonAddContact.isEnabled = true
         self.teamScreen.floatingButtonAddContact.isHidden = false
         
-        //MARK: Observe Firestore database to display the contacts list...
+    
         self.database.collection("users")
             .document((self.currentUser?.email)!)
-            .collection("contacts")
+            .collection("teams")
             .document(self.currentTeam!.id!)
             .collection("pokemon")
             .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
@@ -70,7 +70,7 @@ class TeamViewController: UIViewController {
         view.bringSubviewToFront(teamScreen.floatingButtonAddContact)
         
         //MARK: tapping the floating add contact button...
-        teamScreen.floatingButtonAddContact.addTarget(self, action: #selector(addContactButtonTapped), for: .touchUpInside)
+        teamScreen.floatingButtonAddContact.addTarget(self, action: #selector(addPokemonButtonTapped), for: .touchUpInside)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -78,10 +78,11 @@ class TeamViewController: UIViewController {
     }
 
     
-    @objc func addContactButtonTapped(){
-        let addContactController = AddTeamViewController()
-        addContactController.currentUser = self.currentUser
-        navigationController?.pushViewController(addContactController, animated: true)
+    @objc func addPokemonButtonTapped(){
+        let addPokemonController = AddPokemonViewController()
+        addPokemonController.currentUser = self.currentUser
+        addPokemonController.currentTeam = self.currentTeam
+        navigationController?.pushViewController(addPokemonController, animated: true)
     }
 }
 
