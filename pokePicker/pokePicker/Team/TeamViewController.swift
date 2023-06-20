@@ -26,6 +26,7 @@ class TeamViewController: UIViewController {
         self.teamScreen.labelText.text = currentTeam!.name
         self.teamScreen.floatingButtonAddContact.isEnabled = true
         self.teamScreen.floatingButtonAddContact.isHidden = false
+        self.teamScreen.qrCodeButton.addTarget(self, action: #selector(showQRCodeButtonTapped), for: .touchUpInside)
         
     
         self.database.collection("users")
@@ -83,6 +84,12 @@ class TeamViewController: UIViewController {
         addPokemonController.currentUser = self.currentUser
         addPokemonController.currentTeam = self.currentTeam
         navigationController?.pushViewController(addPokemonController, animated: true)
+    }
+
+    @objc func showQRCodeButtonTapped(){
+        let qrGeneratorController = QRGeneratorViewController()
+        qrGeneratorController.team = self.currentTeam
+        navigationController?.pushViewController(qrGeneratorController, animated: true)
     }
 }
 

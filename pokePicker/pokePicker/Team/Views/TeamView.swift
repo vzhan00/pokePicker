@@ -4,6 +4,7 @@ class TeamView: UIView {
     var labelText: UILabel!
     var floatingButtonAddContact: UIButton!
     @IBOutlet var tableViewPokemon: UITableView!
+    var qrCodeButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -12,6 +13,7 @@ class TeamView: UIView {
         setupLabelText()
         setupFloatingButtonAddContact()
         setupTableViewPokemon()
+        setupQRCodeButton()
         initConstraints()
     }
     
@@ -44,6 +46,15 @@ class TeamView: UIView {
         floatingButtonAddContact.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(floatingButtonAddContact)
     }
+
+    func setupQRCodeButton(){
+    qrCodeButton = UIButton(type: .system)
+    qrCodeButton.setTitle("Show QR Code", for: .normal)
+    qrCodeButton.backgroundColor = UIColor.blue
+    qrCodeButton.setTitleColor(UIColor.white, for: .normal)
+    qrCodeButton.translatesAutoresizingMaskIntoConstraints = false
+    self.addSubview(qrCodeButton)
+}
     
     
     //MARK: setting up constraints...
@@ -62,6 +73,11 @@ class TeamView: UIView {
             floatingButtonAddContact.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -16),
             floatingButtonAddContact.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
 
+
+            qrCodeButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            qrCodeButton.bottomAnchor.constraint(equalTo: floatingButtonAddContact.topAnchor, constant: -16),
+            qrCodeButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.6),
+            qrCodeButton.heightAnchor.constraint(equalToConstant: 48),
         ])
     }
     
