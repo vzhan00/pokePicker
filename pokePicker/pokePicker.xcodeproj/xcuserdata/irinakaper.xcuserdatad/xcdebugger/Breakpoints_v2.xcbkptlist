@@ -407,7 +407,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B8D81711-3AAC-4AD9-A4B9-AC18BC4D6CCB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pokePicker/QR Code/QRGeneratorViewController.swift"
@@ -423,7 +423,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E0648256-90C8-4765-9811-4375BF7BC33B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pokePicker/QR Code/QRGeneratorViewController.swift"
