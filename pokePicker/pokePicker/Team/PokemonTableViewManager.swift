@@ -17,6 +17,12 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: Configs.tableViewPokemonID, for: indexPath) as! PokemonTableViewCell
         cell.labelName.text = pokemonList[indexPath.row].name
         
+        
+        // Load the sprite image
+        let pokemonName = pokemonList[indexPath.row].name.lowercased()
+        let image = UIImage(named: "\(pokemonName).png") ?? UIImage(named: "questionmark.png")
+        cell.pokemonSprite.image = image
+        
         // button for editing/deleting
         let buttonOptions = UIButton(type: .system)
         buttonOptions.sizeToFit()

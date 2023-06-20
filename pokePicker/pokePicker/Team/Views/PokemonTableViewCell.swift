@@ -4,19 +4,31 @@ class PokemonTableViewCell: UITableViewCell {
     
     var wrapperCellView: UIView!
     var labelName: UILabel!
+    var pokemonSprite: UIImageView!
+
+
+
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupWrapperCellView()
         setupLabelName()
-        
+        setupPokemonSprite()
         initConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func setupPokemonSprite() {
+        pokemonSprite = UIImageView()
+        pokemonSprite.contentMode = .scaleAspectFill // or .scaleAspectFill
+        pokemonSprite.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(pokemonSprite)
+    }
+
     
     func setupWrapperCellView(){
         wrapperCellView = UITableViewCell()
@@ -50,6 +62,14 @@ class PokemonTableViewCell: UITableViewCell {
             labelName.leadingAnchor.constraint(equalTo: wrapperCellView.leadingAnchor, constant: 16),
             labelName.heightAnchor.constraint(equalToConstant: 20),
             labelName.widthAnchor.constraint(lessThanOrEqualTo: wrapperCellView.widthAnchor),
+            
+            pokemonSprite.centerXAnchor.constraint(equalTo: wrapperCellView.centerXAnchor),
+            pokemonSprite.centerYAnchor.constraint(equalTo: wrapperCellView.centerYAnchor),
+            pokemonSprite.widthAnchor.constraint(equalToConstant: 40),
+            pokemonSprite.heightAnchor.constraint(equalToConstant: 40),
+
+            labelName.centerYAnchor.constraint(equalTo: wrapperCellView.centerYAnchor),
+            labelName.leadingAnchor.constraint(equalTo: wrapperCellView.leadingAnchor, constant: 16),
             
             wrapperCellView.heightAnchor.constraint(equalToConstant: 72)
         ])
