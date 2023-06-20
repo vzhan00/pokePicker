@@ -44,8 +44,8 @@ class TeamViewController: UIViewController {
                             print(error)
                         }
                     }
-                    self.pokemonList.sort(by: {$0.name < $1.name})
-                    self.teamScreen.tableViewPokemon.reloadData()
+                    
+                    self.teamScreen.tableViewPokemon!.reloadData()
                 }
         })
     }
@@ -57,11 +57,11 @@ class TeamViewController: UIViewController {
         title = "Pokemon"
         
         //MARK: patching table view delegate and data source...
-        teamScreen.tableViewPokemon.delegate = self
-        teamScreen.tableViewPokemon.dataSource = self
+        teamScreen.tableViewPokemon!.delegate = self
+        teamScreen.tableViewPokemon!.dataSource = self
         
         //MARK: removing the separator line...
-        teamScreen.tableViewPokemon.separatorStyle = .none
+        teamScreen.tableViewPokemon!.separatorStyle = .none
         
         //MARK: Make the titles look large...
         navigationController?.navigationBar.prefersLargeTitles = true

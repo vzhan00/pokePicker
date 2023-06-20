@@ -3,7 +3,7 @@ import UIKit
 class TeamView: UIView {
     var labelText: UILabel!
     var floatingButtonAddContact: UIButton!
-    var tableViewPokemon: UITableView!
+    @IBOutlet var tableViewPokemon: UITableView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,20 +49,19 @@ class TeamView: UIView {
     //MARK: setting up constraints...
     func initConstraints(){
         NSLayoutConstraint.activate([
-            labelText.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            labelText.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-            labelText.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 8),
-            
+            labelText.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
+            labelText.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+
             tableViewPokemon.topAnchor.constraint(equalTo: labelText.bottomAnchor, constant: 8),
             tableViewPokemon.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
             tableViewPokemon.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             tableViewPokemon.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            
+
             floatingButtonAddContact.widthAnchor.constraint(equalToConstant: 48),
             floatingButtonAddContact.heightAnchor.constraint(equalToConstant: 48),
             floatingButtonAddContact.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -16),
             floatingButtonAddContact.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            
+
         ])
     }
     
