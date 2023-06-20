@@ -1,23 +1,39 @@
-//
-//  QRGeneratorViewController.swift
-//  pokePicker
-//
-//  Created by Irina Kaper on 6/18/23.
-//
-
 import UIKit
 
 class QRGeneratorViewController: UIViewController {
-    @IBOutlet weak var imageView: UIImageView!
+    var qrGeneratorView: QRGeneratorView! {
+        return self.view as? QRGeneratorView
+    }
     
     var team: Team!
     
+    override func loadView() {
+        view = QRGeneratorView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        print(team)
+        print(try? JSONEncoder().encode(team))
         
-        guard let teamData = try? JSONEncoder().encode(team),
+        struct SimplifiedTeam: Codable {
+            var name: String
+            var pokemon: [Pokemon]
+        }
+
+        let simplifiedTeam = SimplifiedTeam(name: team.name, pokemon: team.pokemon)
+        guard let teamData = try? JSONEncoder().encode(simplifiedTeam),
               let teamString = String(data: teamData, encoding: .utf8) else { return }
+
         
-        imageView.image = QRCodeGenerator.shared.generateQRCode(from: teamString)
+//        guard let teamData = try? JSONEncoder().encode(team),
+//              let teamString = String(data: teamData, encoding: .utf8) else { return }
+
+        if let qrCodeImage = QRCodeGenerator.shared.generateQRCode(from: teamString) {
+            qrGeneratorView.imageView.image = qrCodeImage
+        } else {
+            print("Failed to generate QR code image.")
+        }
     }
 }
