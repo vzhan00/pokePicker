@@ -18,6 +18,38 @@
             endingLineNumber = "59"
             landmarkName = "savePokemonToFireStore(pokemon:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "93AC35DA-05E2-4DA3-BAAE-921EF0EBBAF6 - 642522974070681a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in pokePicker.AddPokemonViewController.savePokemonToFireStore(pokemon: pokePicker.Pokemon) -&gt; ()"
+                  moduleName = "pokePicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irinakaper/Documents/App%20Dev/Project/pokePicker/pokePicker/pokePicker/Pokemon/AddPokemonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "93AC35DA-05E2-4DA3-BAAE-921EF0EBBAF6 - 642522974070681a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in pokePicker.AddPokemonViewController.savePokemonToFireStore(pokemon: pokePicker.Pokemon) -&gt; ()"
+                  moduleName = "pokePicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/irinakaper/Documents/App%20Dev/Project/pokePicker/pokePicker/pokePicker/Pokemon/AddPokemonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "127">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

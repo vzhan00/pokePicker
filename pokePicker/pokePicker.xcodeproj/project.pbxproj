@@ -32,6 +32,7 @@
 		4B99E07D2A2AEAF100561156 /* AddTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99E07C2A2AEAF100561156 /* AddTeamView.swift */; };
 		4B99E07F2A2AEB0A00561156 /* AddTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B99E07E2A2AEB0A00561156 /* AddTeamViewController.swift */; };
 		C696A0322A41526E00CB9176 /* QRGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C696A0312A41526E00CB9176 /* QRGeneratorView.swift */; };
+		C696A0342A4158F200CB9176 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C696A0332A4158F200CB9176 /* EditViewController.swift */; };
 		C6DDB96F2A3F5CEF003C85B0 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDB96E2A3F5CEF003C85B0 /* QRScannerViewController.swift */; };
 		C6DDB9712A3F5D15003C85B0 /* QRGeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDB9702A3F5D15003C85B0 /* QRGeneratorViewController.swift */; };
 		C6DDB9732A3F5D39003C85B0 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDB9722A3F5D39003C85B0 /* QRGenerator.swift */; };
@@ -72,6 +73,7 @@
 		4B99E07C2A2AEAF100561156 /* AddTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamView.swift; sourceTree = "<group>"; };
 		4B99E07E2A2AEB0A00561156 /* AddTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeamViewController.swift; sourceTree = "<group>"; };
 		C696A0312A41526E00CB9176 /* QRGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGeneratorView.swift; sourceTree = "<group>"; };
+		C696A0332A4158F200CB9176 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		C6DDB96E2A3F5CEF003C85B0 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		C6DDB9702A3F5D15003C85B0 /* QRGeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGeneratorViewController.swift; sourceTree = "<group>"; };
 		C6DDB9722A3F5D39003C85B0 /* QRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				FAE92F5E2A3EC81B00BD0F04 /* Views */,
 				FAE92F5C2A3EC81500BD0F04 /* AddPokemonViewController.swift */,
 				FAE92F682A3ED3B000BD0F04 /* PokemonViewController.swift */,
+				C696A0332A4158F200CB9176 /* EditViewController.swift */,
 			);
 			path = Pokemon;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				C6DDB9712A3F5D15003C85B0 /* QRGeneratorViewController.swift in Sources */,
 				C696A0322A41526E00CB9176 /* QRGeneratorView.swift in Sources */,
 				C6DDB96F2A3F5CEF003C85B0 /* QRScannerViewController.swift in Sources */,
+				C696A0342A4158F200CB9176 /* EditViewController.swift in Sources */,
 				4B99E0632A2A735600561156 /* Configs.swift in Sources */,
 				4B99E0682A2A795600561156 /* TeamsTableViewManager.swift in Sources */,
 				FAE92F592A3EC7DF00BD0F04 /* Pokemon.swift in Sources */,
