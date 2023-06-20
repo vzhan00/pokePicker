@@ -22,7 +22,23 @@ class TeamView: UIView {
         labelText.font = .boldSystemFont(ofSize: 14)
         labelText.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(labelText)
+        
+        let pokeballImageView = UIImageView(image: UIImage(named: "pokeball.png"))
+        pokeballImageView.contentMode = .scaleAspectFit
+        pokeballImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(pokeballImageView)
+        
+        NSLayoutConstraint.activate([
+            labelText.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
+            labelText.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            
+            pokeballImageView.centerYAnchor.constraint(equalTo: labelText.centerYAnchor),
+            pokeballImageView.leadingAnchor.constraint(equalTo: labelText.trailingAnchor, constant: 8),
+            pokeballImageView.widthAnchor.constraint(equalToConstant: 24),
+            pokeballImageView.heightAnchor.constraint(equalToConstant: 24),
+        ])
     }
+
     
     func setupTableViewPokemon(){
         tableViewPokemon = UITableView()
